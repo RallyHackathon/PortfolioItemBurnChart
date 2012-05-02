@@ -54,14 +54,15 @@ Ext.define('BurnChartApp.BurnChartTree', {
         treeRow.getEl().on('click', this._onTreeRowClick, this, {stopEvent: true});
     },
 
-    _onTreeRowClick: function(event, treeRowTextEl) {
-        var prevSelectedItem = Ext.DomQuery.selectNode('.treeItem.selected');
+    _onTreeRowClick: function(event, treeRowTextDom) {
+        var prevSelectedItem = Ext.DomQuery.selectNode('.treeItem .pill.selected');
         if (prevSelectedItem) {
             Ext.fly(prevSelectedItem).removeCls('selected');
         }
-        var treeItemDom = Ext.get(treeRowTextEl).findParentNode('.treeItem');
-        Ext.fly(treeItemDom).addCls('selected');
-        var treeRowRecord = Ext.getCmp(treeItemDom.id).getRecord();
+        var treeRowEl = Ext.get(treeRowTextDom).parent('.treeItem');
+        treeRowEl.down('.pill').addCls('selected');
+
+        var treeRowRecord = Ext.getCmp(treeRowEl.dom.id).getRecord();
         var itemId = treeRowRecord.get('ObjectID');
         var title = treeRowRecord.get('FormattedID') + ' - ' + treeRowRecord.get('Name');
         var startDateObj = treeRowRecord.get('ActualStartDate');
