@@ -1,0 +1,15 @@
+.app {
+
+}
+
+.rallytree {
+    overflow: auto;
+}
+
+.treeItem .pill .row-action {
+    display: none;
+}
+
+.treeItem .pill {
+    cursor: pointer;
+}

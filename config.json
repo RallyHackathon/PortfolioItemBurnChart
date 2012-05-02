@@ -1,0 +1,14 @@
+{
+    "name":"BurnChartApp",
+    "className":"BurnChartApp",
+    "sdk":"2.0p",
+    "javascript":[
+        "js/burncalculator.js",
+        "js/BurnChartBuilder.js",
+        "js/BurnChartTree.js",
+        "js/App.js"
+    ],
+    "css":[
+        "css/app.css"
+    ]
+}
