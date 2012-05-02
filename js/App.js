@@ -14,8 +14,7 @@ Ext.define('BurnChartApp', {
         this.chartQuery = {
             find:{
                 _Type:'HierarchicalRequirement',
-                Children:null,
-                _ItemHierarchy: 12231
+                Children:null
             }
         };
 
@@ -62,7 +61,7 @@ Ext.define('BurnChartApp', {
                                 id: 'chartCmp',
                                 xtype: 'component',
                                 flex: 1,
-                                html: '<div>Choose a Portfolio Item from the list to see its burn chart.</div>'
+                                html: '<div class="emptyChartMsg">Choose a Portfolio Item from the list to see its burn chart.</div>'
                             })
                         }
                         this.getEl().unmask();
@@ -76,6 +75,7 @@ Ext.define('BurnChartApp', {
             },
             typeStore: typeStore
         });
+        //can't set the scope to itself when constructing.
         piTree.scope = piTree;
         
         this.add(piTree);
@@ -95,7 +95,7 @@ Ext.define('BurnChartApp', {
             this.add({
                 id: 'chartCmp',
                 xtype: 'component',
-                html: '<div>No user story data found for ' + formattedId + ' starting from: ' + this.startTime + '</div>'
+                html: '<div class="emptyChartMsg">No user story data found for ' + formattedId + '</div>'
             });
         }
     },

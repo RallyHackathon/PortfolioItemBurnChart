@@ -5,3 +5,6 @@ cabal-dev
 *.chi
 *.chs.h
 App*.html
+*.ipr
+*.iws
+*.iml

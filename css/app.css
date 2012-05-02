@@ -13,3 +13,11 @@
 .treeItem .pill {
     cursor: pointer;
 }
+
+.emptyChartMsg {
+    text-align: center;
+    padding: 15px;
+    height: 100%;
+    font-size: 12px;
+    font-weight: bold;
+}

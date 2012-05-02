@@ -17,7 +17,7 @@ Ext.define('BurnChartApp.BurnChartTree', {
         }
         this.add({
             xtype: 'component',
-            html: '<p> No Portfolio Items within the currently scoped project(s).</p>'
+            html: '<div class="emptyChartMsg"> No Portfolio Items within the currently scoped project(s).</div>'
         });
     },
 
