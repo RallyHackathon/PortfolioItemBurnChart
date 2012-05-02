@@ -4,6 +4,7 @@
 
 .rallytree {
     overflow: auto;
+    border-right: 1px solid #999
 }
 
 .treeItem .pill .row-action {

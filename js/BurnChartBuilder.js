@@ -207,6 +207,9 @@
                                 lineWidth:1,
                                 lineColor:'#666666'
                             }
+                        },
+                        area: {
+                            color: "#090"
                         }
                     },
                     series:series
