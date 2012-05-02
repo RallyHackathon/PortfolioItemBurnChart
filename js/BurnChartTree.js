@@ -55,17 +55,19 @@ Ext.define('BurnChartApp.BurnChartTree', {
     },
 
     _onTreeRowClick: function(event, treeRowTextEl) {
-        var treeItem = Ext.getCmp(Ext.get(treeRowTextEl).findParentNode('.treeItem').id);
-        var treeRowRecord = treeItem.getRecord();
+        var prevSelectedItem = Ext.DomQuery.selectNode('.treeItem.selected');
+        if (prevSelectedItem) {
+            Ext.fly(prevSelectedItem).removeCls('selected');
+        }
+        var treeItemDom = Ext.get(treeRowTextEl).findParentNode('.treeItem');
+        Ext.fly(treeItemDom).addCls('selected');
+        var treeRowRecord = Ext.getCmp(treeItemDom.id).getRecord();
         var itemId = treeRowRecord.get('ObjectID');
         var title = treeRowRecord.get('FormattedID') + ' - ' + treeRowRecord.get('Name');
         var startDateObj = treeRowRecord.get('ActualStartDate');
         startDateObj = startDateObj ? startDateObj : treeRowRecord.get('PlannedStartDate');
+        //if all else fails, use creation date as a start date. that always exists.
         startDateObj = startDateObj ? startDateObj : treeRowRecord.get('CreationDate');
-        if (!startDateObj) {
-            alert('The start date is not set for this item');
-            return;
-        }
         var startYear = this._addZeroToDateIfNeeded(startDateObj.getUTCFullYear());
         var startMonth = this._addZeroToDateIfNeeded(startDateObj.getUTCMonth() + 1);
         var startDay = this._addZeroToDateIfNeeded(startDateObj.getUTCDate());

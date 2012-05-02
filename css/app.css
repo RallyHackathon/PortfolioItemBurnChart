@@ -7,13 +7,18 @@
     border-right: 1px solid #999
 }
 
+.treeItem .pill {
+    cursor: pointer;
+}
+
 .treeItem .pill .row-action {
     display: none;
 }
 
-.treeItem .pill {
-    cursor: pointer;
+.treeItem.selected .pill .textContent{
+  background-color: #ccc;
 }
+
 
 .emptyChartMsg {
     text-align: center;
