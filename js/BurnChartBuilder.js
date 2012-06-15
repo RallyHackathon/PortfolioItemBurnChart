@@ -222,7 +222,7 @@
                         }
                     },
                     area: {
-                        color: "#00B800"
+                        color: "#3a874f"
                     }
                 },
                 series:series

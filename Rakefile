@@ -408,7 +408,7 @@ HTML_TPL = <<-END
     <script type="text/javascript" src="http://code.highcharts.com/2.1.6/highcharts.js"></script>
     <script type="text/javascript" src="https://raw.github.com/JoeKuan/Highcharts_ExtJs_4/master/Chart/ux/HighChart.js"></script>
     
-    <script type="text/javascript" src="https://raw.github.com/RallyApps/rally_analytics/master/lib/lumenize/deploy/lumenize.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/RallyCommunity/RallyAnalytics/master/lib/lumenize/deploy/lumenize.js"></script>
     
     
     <script type="text/javascript">
