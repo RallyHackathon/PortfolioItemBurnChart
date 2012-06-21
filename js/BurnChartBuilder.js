@@ -20,6 +20,9 @@
             if (this.scheduleStateOidAccepted && this.scheduleStateOidReleased) {
                 this._queryAnalyticsApi();
             } else {
+            
+                //TODO: This code for figuring out the OIDs for the Accepted and Released states will all go away once we query the LBAPI with the hydrate property
+                
                 //mark this component that its updating multiple ajax requests. See Rally.util.ComponentUpdatable mixin.
                 var acceptedReqName = 'GetAcceptedScheduleStateOid';
                 var releasedReqName = 'GetReleasedScheduleStateOid';
@@ -90,7 +93,7 @@
                 // Need to grab from Rally for this user
                 DateFormat:contextWorkspaceConfig.DateFormat,
                 DateTimeFormat:contextWorkspaceConfig.DateTimeFormat,
-                //TODO: Have context code fetch these values for the workspace config, instead of hardcoding them
+                //TODO: Have context code fetch these values for the workspace config from the WSAPI response, instead of hardcoding them
                 IterationEstimateUnitName:'Points',
                 // !TODO: Should we use this?
                 ReleaseEstimateUnitName:'Points',
@@ -101,6 +104,7 @@
                 // They work on Sundays
             };
 
+			//TODO: Switch this to use strings (and eliminate the previous AJAX calls) once we query the LBAPI with the hydrate property
             var acceptedStates = [];
             if (this.scheduleStateOidAccepted) {
                 acceptedStates.push(this.scheduleStateOidAccepted);
@@ -109,6 +113,7 @@
                 acceptedStates.push(this.scheduleStateOidReleased);
             }
 
+			//create the config for the lumenize call
             var burnConfig = {
                 workspaceConfiguration:workspaceConfiguration,
                 upSeriesType:'Story Count',
@@ -141,6 +146,7 @@
             };
 
             lumenize.ChartTime.setTZPath("");
+            //make the lumenize call (burnCalculator is a global mehtod in burncalculator.js)
             var tscResults = burnCalculator(queryResultsData.Results, burnConfig);
 
             var categories = tscResults.categories;
